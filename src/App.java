@@ -1,6 +1,4 @@
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
@@ -12,7 +10,7 @@ public class App {
 	
 	//private static Scanner scan;
 	
-	public static void main(String[] args) {
+	public static void run() {
 		con = ChatData.connect(DBPath);
 		stmt = ChatData.makeStatement(con);
 		ChatData.setTables();
@@ -21,62 +19,10 @@ public class App {
 		
 		System.out.println("\nWelcome to Luis's CLI Chat App!\n");
 		
-		initScreen(scan);
+		Init.menu(scan);
 		
 		System.out.println("\nGoodbye!");
 
-	}
-	
-	private static void initScreen(Scanner scan) {
-			boolean quit = false;
-			String input;
-			
-			while(!quit) {
-			
-				System.out.println("Select from the following options:");
-				System.out.println("(R)egister, (L)ogin, (Q)uit");
-				System.out.println("-----------------------------------------");
-				
-				input = scan.nextLine().toLowerCase();
-				
-				switch(input) {
-					case "r":
-					case "register":
-						
-						break;
-					case "l":
-					case "login":
-						
-						break;
-					case "q":
-					case "quit":
-						quit = true;
-						break;
-						
-					default:
-						System.out.println("\nNot a valid option,");
-			}
-		}
-	}
-	
-	private static void registerScreen(Scanner scan) {
-		boolean quit = false;
-		String usr, pass;
-		
-		while(!quit) {
-			
-			System.out.println("Enter Username and Password for new user:");
-			System.out.println("-----------------------------------------");
-			System.out.print("Username: ");
-			
-			usr = scan.nextLine();
-			
-			if(!ChatData.isUniqueUser(usr)) {
-				continue;
-			}
-		}
-			
-			
 	}
 
 	public static Connection getCon() {
