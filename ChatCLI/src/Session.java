@@ -45,7 +45,7 @@ public class Session {
 	private void createRoom(String room) {
 		
 		if(room.equals("")) {
-//			System.out.println("\nPlease provide a room name (Example: \"c room_name\")");
+			System.out.println("\nPlease provide a room name (Example: \"c room_name\")");
 			return;
 		}
 		
